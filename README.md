@@ -38,14 +38,18 @@ A full-stack web application to manage and display student results efficiently. 
 ## 📦 Installation
 
  Clone the repository:
+ 
 
   -> git clone https://github.com/sparsh-goyal01/result-management-system.git
    cd result-management-system 
 
 **🛠️ Future Improvements**
 ✅User authentication (Admin/Student)
+
 ✅Database integration (MongoDB or Firebase)
+
 ✅Export results as PDF/Excel
+
 ✅Analytics dashboard
 
 Thank you for reading this.
