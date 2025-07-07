@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Student Result</title>
+
+  <style>
+body {
+  font-family: Arial, sans-serif;
+  padding: 30px;
+  /* background: linear-gradient(to right, #e0f7fa, #ede7f6); */
+  background: linear-gradient(135deg, #f5f5f5 0%, #e0d4c6 100%);
+  background-image: url('https://images.unsplash.com/photo-1523289333742-be1143f6b766');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+h2 {
+  text-align: center;
+}
+.quote-box {
+  position: absolute;
+  left: 40px;
+  top: 40%;
+  width: 250px;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+button:hover {
+  background-color: #45a049;
+}
+
+.footer {
+  margin-top: 40px;
+  font-weight: bolder;
+  font-size: 17px;
+  color: #000000;
+  text-align: center;
+}
+
+  </style>
+</head>
+<body> 
+  
+  <h1 style="padding-top: 50px; text-align: center;">📚 Student Result Management System</h1>
+
+  <h2>➕ Add Student Result</h2>
+
+  <div class="quote-box">
+  <p>"Success is the sum of small efforts, repeated day in and day out."</p>
+</div>
+
+  <form id="resultForm">
+    <input type="text" id="name" placeholder="Student Name" required />
+    <input type="text" id="roll" placeholder="Roll Number" required />
+    <input type="text" id="class" placeholder="Class" required />
+
+    <input type="number" id="math" placeholder="Math Marks" required />
+    <input type="number" id="science" placeholder="Science Marks" required />
+    <input type="number" id="english" placeholder="English Marks" required />
+
+    <button type="submit">Submit Result</button>
+    
+
+
+  <script>
+  const form = document.getElementById("resultForm");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const data = {
+      name: document.getElementById("name").value,
+      roll: document.getElementById("roll").value,
+      class: document.getElementById("class").value,
+      math: parseInt(document.getElementById("math").value),
+      science: parseInt(document.getElementById("science").value),
+      english: parseInt(document.getElementById("english").value)
+    };
+
+    const total = data.math + data.science + data.english;
+    const percentage = (total / 3).toFixed(2);
+    const CGPA = (percentage/10).toFixed(2);
+
+    let grade = "";
+    if (percentage >= 90) grade = "A+";
+    else if (percentage >= 80) grade = "A";
+    else if (percentage >= 70) grade = "B";
+    else if (percentage >= 60) grade = "C";
+    else if (percentage >= 50) grade = "D";
+    else grade = "F";
+
+    // Combine all data
+    const resultData = {
+      ...data,
+      total,
+      percentage,
+      grade,
+      CGPA
+    };
+
+    try {
+      const res = await fetch("http://localhost:3000/add-result", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(resultData)
+      });
+
+      const msg = await res.text();
+      alert(msg);
+      form.reset();
+    } catch (err) {
+      alert("Error: " + err.message);
+    }
+  });
+</script>
+<br>
+    <br>
+    <button><a href="viewresult.html" style="text-decoration: none; color: white;">View Results</a></button>
+  </form>
+<footer>
+<div class="footer">
+    <p>Created by Sparsh Goyal • School/College Edition</p>
+  </div></footer>
+
+</body>
+</html>

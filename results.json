@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Sparsh",
+    "roll": "1bce24411",
+    "class": "12",
+    "math": 45,
+    "science": 56,
+    "english": 44,
+    "total": 145,
+    "percentage": "48.33",
+    "grade": "F",
+    "CGPA": "4.83"
+  },
+  {
+    "name": "Yash Silwadiya",
+    "roll": "1bce24475",
+    "class": "12",
+    "math": 34,
+    "science": 77,
+    "english": 87,
+    "total": 198,
+    "percentage": "66.00",
+    "grade": "C",
+    "CGPA": "6.60"
+  },
+  {
+    "name": "Piyush",
+    "roll": "1BCE24322",
+    "class": "12",
+    "math": 88,
+    "science": 56,
+    "english": 99,
+    "total": 243,
+    "percentage": "81.00",
+    "grade": "A",
+    "CGPA": "8.10"
+  },
+  {
+    "name": "NIrbhay Tak",
+    "roll": "1BCE24311",
+    "class": "12",
+    "math": 87,
+    "science": 98,
+    "english": 87,
+    "total": 272,
+    "percentage": "90.67",
+    "grade": "A+",
+    "CGPA": "9.06"
+  },
+  {
+    "name": "Naveen ",
+    "roll": "1BCE24315",
+    "class": "12",
+    "math": 89,
+    "science": 56,
+    "english": 80,
+    "total": 225,
+    "percentage": "75.00",
+    "grade": "B",
+    "CGPA": "7.50"
+  },
+  {
+    "name": "Bhavya Alag",
+    "roll": "1BCE24234",
+    "class": "12",
+    "math": 85,
+    "science": 56,
+    "english": 78,
+    "total": 219,
+    "percentage": "73.00",
+    "grade": "B",
+    "CGPA": "7.30"
+  }
+]
